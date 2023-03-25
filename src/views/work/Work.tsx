@@ -40,7 +40,7 @@ const Work = () => {
     {
       title: 'Soup Finance',
       subTitle: 'Vinox Co.,Ltd - FE Web3 Developer',
-      image: '/soup.png',
+      image: '/soup.jpg',
       descriptions: [
         'Soup Finance is a decentralised cross-chain money market for the metaverse economy. Supply crypto-assets to earn interest, and borrow assets for low interest subsidised loans with $SOUP rewards.',
       ],

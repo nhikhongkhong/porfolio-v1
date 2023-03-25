@@ -69,12 +69,10 @@ const TabList = (props: TabListProps) => {
         ></motion.div>
       </motion.ul>
       <motion.div className='py-[10px] flex-1 h-[261px]' variants={rightChildVariant}>
-        <AnimatePresence>
-          {data.map((item: TabItem, index: number) => {
-            const show = activeTabIndex === index;
-            return <>{show && <TabContent {...item.content} show={show} />}</>;
-          })}
-        </AnimatePresence>
+        {data.map((item: TabItem, index: number) => {
+          const show = activeTabIndex === index;
+          return <AnimatePresence key={index}>{show && <TabContent {...item.content} show={show} />}</AnimatePresence>;
+        })}
       </motion.div>
     </motion.div>
   );
