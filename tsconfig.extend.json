@@ -1,0 +1,67 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@pages/*": [
+                "./src/pages/*"
+            ],
+            "@images/*": [
+                "./src/assets/images/*"
+            ],
+            "@images": [
+                "./src/assets/images"
+            ],
+            "@hooks/*": [
+                "./src/hooks/*"
+            ],
+            "@hooks": [
+                "./src/hooks"
+            ],
+            "@wallet/*": [
+                "./src/wallet/*"
+            ],
+            "@interfaces/*": [
+                "./src/interfaces/*"
+            ],
+            "@views/*": [
+                "./src/views/*"
+            ],
+            "@views": [
+                "./src/views"
+            ],
+            "@assets/*": [
+                "./src/assets/*"
+            ],
+            "@assets": [
+                "./src/assets"
+            ],
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@store/*": [
+                "./src/store/*"
+            ],
+            "@store": [
+                "./src/store"
+            ],
+            "@config/*": [
+                "./src/config/*"
+            ],
+            "@helpers/*": [
+                "./src/helpers/*"
+            ],
+            "@services/*": [
+                "./src/services/*"
+            ],
+            "@routes/*": [
+                "./src/routes/*"
+            ],
+            "@context/*": [
+                "./src/context/*"
+            ],
+            "@/*": [
+                "./src/*"
+            ]
+        }
+    }
+}
