@@ -4,11 +4,13 @@ import Header from './Header';
 import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
 import PageLoading from '@/views/loading';
+import {StreamerView} from '@/components/StreamerView';
 
 const MainLayout = ({children}: {children?: React.ReactNode}) => {
   const [loading, setLoading] = useState<boolean>(true);
   return (
-    <div className='bg-primaryBg w-screen min-h-screen flex flex-col'>
+    <div className='bg-primaryBg w-screen min-h-screen flex flex-col relative'>
+      <StreamerView />
       {loading && (
         <PageLoading
           stopLoading={() => {

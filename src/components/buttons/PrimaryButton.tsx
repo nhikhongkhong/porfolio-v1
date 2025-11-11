@@ -9,7 +9,7 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
   return (
     <button
       className={clsx(
-        `rounded-[5px] font-semibold border-primary border hover:bg-primary/10 text-primary text-sm py-[0.5rem] px-[1rem] hover:scale-110 ease-in-out duration-200`,
+        `rounded-[5px] border-primary border hover:bg-primary/10 text-primary text-sm py-[0.5rem] px-[1rem] hover:scale-110 ease-in-out duration-200`,
         'relative group overflow-hidden hover:text-primaryBg',
         textClassName,
       )}

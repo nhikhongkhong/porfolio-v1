@@ -1,32 +1,14 @@
-import React, {useRef} from 'react';
+import React, {useMemo, useRef} from 'react';
 import {ProjectCardProps} from './types';
 import {motion, useInView, Variants} from 'framer-motion';
 import Image from 'next/image';
 import clsx from 'clsx';
 
-const variants: Variants = {
-  offscreen: {
-    x: '-100%',
-    opacity: 0,
-    transition: {
-      x: {stiffness: 1000},
-      opacity: {duration: 1000},
-    },
-  },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      x: {stiffness: 1000, velocity: -100},
-      opacity: {duration: 1000},
-    },
-  },
-};
-
 const ProjectCard = (props: ProjectCardProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {margin: '-100px 0px 0px'});
-  const {title, subTitle, descriptions, technologies, revert, image, imageFit} = props;
+  const {title, subTitle, descriptions, technologies, revert, image, imageFit, direction} = props;
+  const variants = useMemo(() => getAnimationVariants(direction), [direction]);
   return (
     <motion.div
       className='bg-secondaryBg p-[20px] md:p-0 rounded shadow-lg md:shadow-none md:bg-transparent grid grid-cols-12 group relative'
@@ -99,6 +81,27 @@ const ProjectCard = (props: ProjectCardProps) => {
       <Image className='rounded grayscale opacity-10 md:hidden object-cover shadow-xl blur-sm' src={image} alt={title} fill />
     </motion.div>
   );
+};
+
+const getAnimationVariants = (direction: 'left' | 'right'): Variants => {
+  return {
+    offscreen: {
+      x: direction === 'left' ? '-100%' : '100%',
+      opacity: 0,
+      transition: {
+        x: {stiffness: 1000},
+        opacity: {duration: 1000},
+      },
+    },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        x: {stiffness: 1000, velocity: -100},
+        opacity: {duration: 1000},
+      },
+    },
+  };
 };
 
 export default ProjectCard;

@@ -1,0 +1,675 @@
+# Portfolio Project - Cursor Rules
+
+## Project Overview
+
+This is a portfolio website built with Next.js 13, React 18, TypeScript, and Tailwind CSS. The project follows modern React patterns with functional components, hooks, and Next.js Pages Router for routing.
+
+## Tech Stack
+
+- **Framework**: Next.js 13.2.4 (Pages Router)
+- **UI Library**: React 18.2.0
+- **Language**: TypeScript 5.0.2
+- **Styling**: Tailwind CSS 3.2.7, CSS Modules
+- **State Management**: Zustand 4.3.6
+- **Animations**: Framer Motion 10.8.4
+- **Icons**: React Icons 4.8.0
+- **PDF Viewer**: React PDF 6.2.2
+- **Code Quality**: ESLint, Prettier, Husky
+
+## Code Style & Conventions
+
+### TypeScript
+
+- Use strict TypeScript with explicit type annotations
+- Prefer `type` imports for type-only imports: `import { type AppProps } from 'next/app'`
+- Use interfaces for object shapes, types for unions/intersections
+- Always define return types for functions: `(): React.ReactElement` or `(): JSX.Element`
+- Use `React.ReactNode` for flexible children, `React.ReactElement` for specific components
+- Use path aliases: `@/*` maps to `./src/*` (configured in tsconfig.json)
+
+### React Patterns
+
+- Use functional components exclusively (no class components)
+- Prefer named exports over default exports for better tree-shaking (except Next.js pages which must use default exports)
+- Use React hooks (useState, useEffect, useCallback, useMemo) appropriately
+- Use Next.js built-in optimizations: `next/image`, `next/link`, `next/head`
+- Use proper TypeScript types for props: `interface ComponentProps { ... }`
+- Leverage Next.js automatic code splitting for pages
+
+### File Structure
+
+```
+src/
+  pages/                   # Next.js pages (Pages Router)
+    _app.tsx              # App wrapper
+    _document.tsx          # Custom document
+    api/                  # API routes
+    index.tsx             # Home page
+  components/             # Reusable UI components
+    AnimatedTyping/       # Feature-based component organization
+    buttons/
+    cards/
+    SectionTitle/
+    TabList/
+  views/                  # Page-level views/sections
+    about/
+    contact/
+    experience/
+    hero/
+    layout/               # Layout components (Header, Footer, Sidebars)
+    loading/
+    work/
+  providers/             # Context providers
+  stores/                # Zustand stores
+  styles/                # Global styles and CSS modules
+    globals.css          # Global Tailwind styles
+    *.module.css         # CSS modules
+```
+
+### Naming Conventions
+
+- **Pages**: lowercase with hyphens (e.g., `about.tsx`, `contact.tsx`) - Next.js convention
+- **Components**: PascalCase (e.g., `Hero.tsx`, `ProjectCard.tsx`)
+- **Files**: Match component name exactly
+- **Hooks**: camelCase starting with `use` (e.g., `useTypedSuperpower.ts`)
+- **Stores**: camelCase (e.g., `layout.ts`)
+- **Utils/Services**: camelCase (e.g., `apiClient.ts`, `formatDate.ts`)
+- **Types/Interfaces**: PascalCase (e.g., `User.ts`, `ApiResponse.ts`) or inline in `types.ts` files
+- **Constants**: UPPER_SNAKE_CASE (e.g., `API_BASE_URL`, `MAX_RETRIES`)
+- **Folders**: PascalCase for component folders, lowercase for feature folders
+
+### Next.js Routing (Pages Router)
+
+- All routes defined by file structure in `src/pages/`
+- Use `next/link` for client-side navigation: `<Link href="/about">About</Link>`
+- Use `next/router` for programmatic navigation: `const router = useRouter(); router.push('/about')`
+- API routes in `src/pages/api/` directory
+- Use `getStaticProps`, `getStaticPaths`, `getServerSideProps` for data fetching when needed
+- Leverage Next.js automatic code splitting per page
+
+### Import Organization
+
+1. React and React-related imports
+2. Next.js imports (`next/*`)
+3. Third-party library imports
+4. Type imports (with `type` keyword)
+5. Internal imports (using `@/*` alias)
+6. Style imports (CSS, CSS Modules, Tailwind classes)
+
+Example:
+
+```typescript
+import { useState } from 'react';
+import { type AppProps } from 'next/app';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { type ComponentProps } from './types';
+import { useLayoutStore } from '@/stores/layout';
+import styles from './Component.module.css';
+```
+
+### Component Structure
+
+```typescript
+// 1. Imports
+import { useState } from 'react';
+import { type ComponentProps } from './types';
+import { useLayoutStore } from '@/stores/layout';
+
+// 2. Types/Interfaces
+interface ComponentProps {
+  title: string;
+  onAction: () => void;
+}
+
+// 3. Component
+export const Component = ({ title, onAction }: ComponentProps): React.ReactElement => {
+  // 4. Hooks
+  const [state, setState] = useState<string>('');
+  const { openSidebar, toggleSidebar } = useLayoutStore();
+  
+  // 5. Handlers
+  const handleClick = (): void => {
+    onAction();
+  };
+  
+  // 6. Render
+  return (
+    <div className="container mx-auto">
+      <h1>{title}</h1>
+      <button onClick={handleClick}>Action</button>
+    </div>
+  );
+};
+```
+
+### Styling with Tailwind CSS
+
+- **Primary styling method**: Use Tailwind CSS utility classes
+- Use CSS Modules (`*.module.css`) for component-specific styles when needed
+- Use `globals.css` for global styles and Tailwind directives
+- Follow Tailwind's mobile-first responsive design approach
+- Use Tailwind's `@apply` directive sparingly in CSS modules
+- Example:
+
+  ```typescript
+  // ✅ GOOD - Tailwind classes
+  <div className="container mx-auto px-4 py-8 bg-white dark:bg-gray-900">
+    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Title</h1>
+  </div>
+  
+  // ✅ GOOD - CSS Modules for complex styles
+  <div className={styles.container}>
+    <h1 className={styles.title}>Title</h1>
+  </div>
+  
+  // ❌ BAD - Inline styles (NEVER use)
+  <div style={{ padding: '20px', backgroundColor: 'white' }}>Content</div>
+  ```
+
+### State Management with Zustand
+
+- Use Zustand for global state management
+- Create stores in `src/stores/` directory
+- Use TypeScript interfaces for store state
+- Leverage Zustand middleware (devtools, persist) when needed
+- Example:
+
+  ```typescript
+  import { create } from 'zustand';
+  import { devtools, persist } from 'zustand/middleware';
+  
+  interface StoreState {
+    count: number;
+    increment: () => void;
+  }
+  
+  export const useStore = create<StoreState>()(
+    devtools(
+      persist(
+        (set) => ({
+          count: 0,
+          increment: () => set((state) => ({ count: state.count + 1 })),
+        }),
+        { name: 'store-storage' }
+      )
+    )
+  );
+  ```
+
+## Lighthouse Optimization (Target: 100% All Scores)
+
+### CRITICAL: Styling Rules
+
+- **NEVER use inline styles** (`style={{ ... }}`) - Always use Tailwind CSS or CSS modules
+- Use Tailwind CSS utility classes as the primary styling method
+- Use CSS Modules for complex component-specific styles: `import styles from './Component.module.css'`
+- Extract dynamic styles to CSS variables or use `className` with conditional classes
+- For dynamic values, use CSS custom properties (CSS variables) instead of inline styles
+- Example of dynamic styling:
+
+  ```typescript
+  // ❌ BAD - Never do this
+  <div style={{ color: 'red', margin: '10px' }}>Content</div>
+  
+  // ✅ GOOD - Use Tailwind classes
+  <div className="text-red-500 m-2.5">Content</div>
+  
+  // ✅ GOOD - CSS Modules
+  <div className={styles.container}>Content</div>
+  
+  // ✅ GOOD - Dynamic values via CSS variables
+  <div className={styles.container} style={{ '--custom-color': color }}>Content</div>
+  ```
+
+### Performance Optimization (Core Web Vitals)
+
+#### Next.js Built-in Optimizations
+
+- **ALWAYS** use `next/image` for images instead of `<img>` tag
+- Use `next/link` for client-side navigation
+- Leverage Next.js automatic code splitting
+- Use `next/head` for page-specific meta tags
+- Implement `getStaticProps` for static pages when possible
+- Use `getStaticPaths` with `fallback` for dynamic routes
+- Example:
+
+  ```typescript
+  import Image from 'next/image';
+  import Link from 'next/link';
+  
+  <Image
+    src="/image.jpg"
+    alt="Description"
+    width={800}
+    height={600}
+    priority // for LCP images
+    loading="lazy" // for below-the-fold images
+  />
+  
+  <Link href="/about">
+    <a>About</a>
+  </Link>
+  ```
+
+#### Code Splitting & Lazy Loading
+
+- Next.js automatically code-splits pages
+- Use dynamic imports for heavy components: `const Component = dynamic(() => import('./Component'))`
+- Lazy load heavy third-party libraries (charts, editors, etc.)
+- Use `next/dynamic` with `ssr: false` for client-only components
+- Example:
+
+  ```typescript
+  import dynamic from 'next/dynamic';
+  
+  const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+    loading: () => <p>Loading...</p>,
+    ssr: false, // if client-only
+  });
+  ```
+
+#### Bundle Optimization
+
+- Use tree-shaking friendly imports: `import { specific } from 'library'` not `import * as lib`
+- Prefer named exports over default exports for better tree-shaking (except Next.js pages)
+- Analyze bundle size regularly: `npm run build` shows bundle analysis
+- Use Next.js built-in optimizations
+- Minimize JavaScript execution time (keep main thread work < 3.5s)
+
+#### React Performance
+
+- Use `React.memo()` for expensive components that re-render frequently
+- Use `useMemo()` for expensive computations
+- Use `useCallback()` for event handlers passed to memoized children
+- Avoid creating objects/arrays in render - move to `useMemo()` or `useState()`
+- Implement virtual scrolling for long lists
+- Debounce/throttle expensive operations (search, resize handlers)
+
+#### Image Optimization
+
+- **ALWAYS** use `next/image` component for all images
+- Provide responsive images with `srcSet` prop (handled automatically by Next.js)
+- Use `priority` prop for LCP (Largest Contentful Paint) images
+- Use `loading="lazy"` for below-the-fold images (default behavior)
+- Specify explicit `width` and `height` to prevent layout shift
+- Optimize images before adding to project (compress, resize)
+- Use modern formats: WebP, AVIF (Next.js handles this automatically)
+- Example:
+
+  ```typescript
+  import Image from 'next/image';
+  
+  <Image
+    src="/image.jpg"
+    alt="Description"
+    width={800}
+    height={600}
+    priority // for above-the-fold images
+    quality={90}
+    placeholder="blur" // with blurDataURL for better UX
+  />
+  ```
+
+#### Font Optimization
+
+- **ALWAYS** use `font-display: swap` in `@font-face` declarations
+- Use `next/font` for automatic font optimization (Google Fonts, local fonts)
+- Preload critical fonts in `_document.tsx`
+- Limit number of font families and weights
+- Self-host fonts when possible (better performance than Google Fonts)
+- Example with `next/font`:
+
+  ```typescript
+  import { Inter } from 'next/font/google';
+  
+  const inter = Inter({ subsets: ['latin'], display: 'swap' });
+  
+  export default function RootLayout({ children }) {
+    return (
+      <html className={inter.className}>
+        {children}
+      </html>
+    );
+  }
+  ```
+
+#### CSS Optimization
+
+- Tailwind CSS is automatically purged in production (removes unused styles)
+- Extract critical CSS for above-the-fold content
+- Use CSS modules to scope styles and prevent conflicts
+- Avoid `@import` in CSS (use HTML `<link>` tags or Tailwind directives)
+- Minimize render-blocking CSS
+- Avoid deep selector nesting (max 3 levels)
+- Use efficient selectors
+
+#### Resource Hints
+
+- Next.js automatically adds resource hints for optimized loading
+- Use `<link rel="preconnect">` in `_document.tsx` for critical third-party origins
+- Use `<link rel="dns-prefetch">` for non-critical origins
+- Use `<link rel="preload">` for critical resources (fonts, images, scripts)
+- Example in `_document.tsx`:
+
+  ```typescript
+  <Head>
+    <link rel="preconnect" href="https://api.example.com" />
+    <link rel="dns-prefetch" href="https://cdn.example.com" />
+    <link rel="preload" as="font" href="/fonts/critical.woff2" crossOrigin="anonymous" />
+  </Head>
+  ```
+
+#### HTML Optimization
+
+- Next.js automatically optimizes HTML
+- Use `next/head` for page-specific meta tags
+- Include proper `lang` attribute in `_document.tsx`: `<html lang="en">`
+- Add viewport meta tag (Next.js includes this by default)
+- Include theme color: `<meta name="theme-color" content="#000000">`
+- Add description meta tag per page
+- Include favicon and apple-touch-icon in `public/` directory
+- Example in `_app.tsx` or page components:
+
+  ```typescript
+  import Head from 'next/head';
+  
+  <Head>
+    <title>Page Title - Portfolio</title>
+    <meta name="description" content="Page description" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </Head>
+  ```
+
+#### JavaScript Optimization
+
+- Next.js automatically optimizes JavaScript
+- Minimize main thread work
+- Defer non-critical JavaScript
+- Use `next/dynamic` for code splitting
+- Avoid long tasks (> 50ms) - break into smaller chunks
+- Use Web Workers for heavy computations
+- Minimize JavaScript execution time
+- Remove unused JavaScript code
+
+#### Network & Caching
+
+- Next.js implements automatic HTTP caching for static assets
+- Use `getStaticProps` with `revalidate` for ISR (Incremental Static Regeneration)
+- Optimize API calls (batch requests, use pagination)
+- Implement request deduplication
+- Use CDN for static assets (Vercel/Next.js handles this automatically)
+- Enable compression (gzip/brotli) - handled by hosting platform
+
+### Accessibility (Target: 100%)
+
+#### Semantic HTML
+
+- Use semantic HTML5 elements: `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`
+- Use proper heading hierarchy (h1 → h2 → h3, no skipping levels)
+- Use `<button>` for actions, `<a>` or `next/link` for navigation
+- Use form elements properly: `<label>`, `<input>`, `<select>`, `<textarea>`
+
+#### ARIA
+
+- Use ARIA labels when semantic HTML isn't sufficient
+- Use `aria-label` for icon-only buttons
+- Use `aria-describedby` for additional context
+- Use `aria-live` for dynamic content updates
+- Use `role` attributes only when necessary
+- Ensure ARIA attributes are valid and not redundant
+
+#### Keyboard Navigation
+
+- Ensure all interactive elements are keyboard accessible
+- Implement proper tab order
+- Provide visible focus indicators (Tailwind: `focus:outline-none focus:ring-2`)
+- Use `tabIndex` appropriately (0 for focusable, -1 to remove from tab order)
+- Handle keyboard events: Enter, Space, Escape, Arrow keys
+
+#### Color & Contrast
+
+- Maintain WCAG AA contrast ratios (4.5:1 for text, 3:1 for UI components)
+- Don't rely solely on color to convey information
+- Test with color blindness simulators
+- Provide alternative text indicators
+- Use Tailwind's contrast utilities: `text-gray-900` (high contrast) vs `text-gray-400` (low contrast)
+
+#### Screen Readers
+
+- Provide meaningful alt text for images: `<Image alt="Descriptive text" />`
+- Use `aria-label` for decorative images: `<Image alt="" aria-hidden="true" />`
+- Ensure form inputs have associated labels
+- Provide error messages that are announced to screen readers
+
+### SEO Optimization (Target: 100%)
+
+#### Meta Tags
+
+- Use `next/head` for page-specific meta tags
+- Include unique `<title>` for each page (50-60 characters)
+- Include meta description (150-160 characters)
+- Use Open Graph tags for social sharing
+- Include Twitter Card meta tags
+- Add canonical URLs to prevent duplicate content
+- Example:
+
+  ```typescript
+  import Head from 'next/head';
+  
+  <Head>
+    <title>Page Title - Portfolio</title>
+    <meta name="description" content="Page description" />
+    <link rel="canonical" href="https://example.com/page" />
+    <meta property="og:title" content="Page Title" />
+    <meta property="og:description" content="Page description" />
+    <meta property="og:image" content="https://example.com/image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </Head>
+  ```
+
+#### Structured Data
+
+- Implement JSON-LD structured data for rich snippets
+- Add schema.org markup for content types
+- Include structured data in `_document.tsx` or page components
+- Validate structured data with Google's Rich Results Test
+
+#### Content
+
+- Use descriptive, keyword-rich URLs (Next.js file-based routing)
+- Implement proper heading structure
+- Use semantic HTML for content hierarchy
+- Ensure content is crawlable (Next.js SSR/SSG handles this)
+
+### Best Practices (Target: 100%)
+
+#### Security
+
+- Use HTTPS for all resources
+- Implement Content Security Policy (CSP) in `next.config.js`
+- Avoid `document.write()`
+- Use secure cookies with `SameSite` attribute
+- Validate and sanitize user inputs
+- Avoid XSS vulnerabilities
+- Use Next.js API routes for server-side logic
+
+#### Modern Web Standards
+
+- Use modern JavaScript features (ES2022+)
+- Avoid deprecated APIs
+- Use HTTPS
+- Ensure valid HTML
+- Use valid CSS
+
+#### Mobile Optimization
+
+- Implement responsive design with Tailwind's responsive utilities
+- Ensure touch targets are at least 48x48px
+- Test on real mobile devices
+- Optimize for mobile performance
+- Use Tailwind's mobile-first breakpoints: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+
+### Error Handling
+
+- Use Error Boundaries for component error handling
+- Implement proper try-catch blocks in async functions
+- Provide meaningful error messages
+- Log errors appropriately (don't expose sensitive info)
+- Provide fallback UI for errors
+- Use Next.js `_error.tsx` for custom error pages
+
+### Code Quality
+
+- Write self-documenting code with clear variable names
+- Add JSDoc comments for complex functions
+- Keep functions small and focused (single responsibility)
+- Avoid deep nesting (max 3-4 levels)
+
+## Specific Patterns
+
+### Next.js Pages
+
+- Pages must use default exports
+- Use TypeScript types: `import { type AppProps } from 'next/app'`
+- Use `getStaticProps`, `getStaticPaths`, `getServerSideProps` for data fetching
+- Example:
+
+  ```typescript
+  import { type NextPage } from 'next';
+  import Head from 'next/head';
+  
+  const HomePage: NextPage = () => {
+    return (
+      <>
+        <Head>
+          <title>Home - Portfolio</title>
+        </Head>
+        <main>
+          <h1>Welcome</h1>
+        </main>
+      </>
+    );
+  };
+  
+  export default HomePage;
+  ```
+
+### Component Organization
+
+- Organize components by feature in folders
+- Each component folder should have: `ComponentName.tsx`, `types.ts`, `index.ts`
+- Use `index.ts` for clean imports: `export { ComponentName } from './ComponentName'`
+- Example structure:
+
+  ```
+  components/
+    buttons/
+      PrimaryButton.tsx
+      types.ts
+      index.ts
+  ```
+
+### State Management Pattern
+
+- Use Zustand for global state
+- Keep stores in `src/stores/` directory
+- Use TypeScript interfaces for type safety
+- Leverage middleware (devtools, persist) when needed
+- Example:
+
+  ```typescript
+  import { create } from 'zustand';
+  
+  interface StoreState {
+    // state
+    // actions
+  }
+  
+  export const useStore = create<StoreState>()((set) => ({
+    // implementation
+  }));
+  ```
+
+### Type Safety
+
+- Always type function parameters and return values
+- Use `type` imports for type-only dependencies
+- Avoid `any` - use `unknown` if type is truly unknown
+- Use type guards for runtime type checking
+- Define types in `types.ts` files within component folders
+
+## Git & Commits
+
+- Follow conventional commits (enforced by commitlint if configured)
+- Format: `type(scope): description`
+- Types: feat, fix, docs, style, refactor, test, chore
+- Example: `feat(hero): add animated typing effect`
+
+## Next.js Configuration Optimizations
+
+### Build Optimizations
+
+- Enable React Strict Mode: `reactStrictMode: true` (already enabled)
+- Configure image domains if using external images: `images: { domains: ['example.com'] }`
+- Enable compression: `compress: true`
+- Configure output: `output: 'standalone'` for Docker deployments
+- Example `next.config.js`:
+
+  ```javascript
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    reactStrictMode: true,
+    compress: true,
+    images: {
+      domains: ['example.com'],
+      formats: ['image/avif', 'image/webp'],
+    },
+  };
+  
+  module.exports = nextConfig;
+  ```
+
+### Development Optimizations
+
+- Use Next.js Fast Refresh (enabled by default)
+- Configure ESLint for Next.js: `eslint-config-next`
+- Use Prettier for code formatting
+- Configure path aliases in `tsconfig.json`: `"@/*": ["./src/*"]`
+
+## When Writing Code
+
+### Lighthouse Checklist (Apply to ALL Code)
+
+- ✅ **NO inline styles** - Always use Tailwind CSS or CSS modules
+- ✅ Use `next/image` for all images
+- ✅ Use `next/link` for navigation
+- ✅ Optimize all images (WebP/AVIF, responsive, lazy loading via Next.js)
+- ✅ Use semantic HTML elements
+- ✅ Include proper ARIA labels and alt text
+- ✅ Ensure keyboard navigation works
+- ✅ Maintain color contrast ratios
+- ✅ Use `React.memo()`, `useMemo()`, `useCallback()` appropriately
+- ✅ Avoid creating objects/arrays in render
+- ✅ Minimize JavaScript execution time
+- ✅ Use proper meta tags for SEO (via `next/head`)
+- ✅ Implement proper error boundaries
+- ✅ Test with Lighthouse before committing
+
+### General Guidelines
+
+- Always check for existing patterns before creating new ones
+- Follow the established file structure
+- Use TypeScript strictly - no implicit any
+- Ensure code passes ESLint and Prettier checks
+- Write code that is maintainable and scalable
+- **ALWAYS consider Lighthouse scores when writing code**
+- Add appropriate error handling
+- Include proper TypeScript types
+- Test performance impact of new features
+- Verify accessibility with screen readers and keyboard navigation
+- Use Tailwind CSS as the primary styling method
+- Leverage Next.js built-in optimizations
+- Use Zustand for global state management

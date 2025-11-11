@@ -2,7 +2,7 @@ import SectionTitle from '@/components/SectionTitle';
 import React, {useRef} from 'react';
 import {motion, Variants, useInView} from 'framer-motion';
 import Image from 'next/image';
-import {useRouter} from 'next/router';
+import {useTranslation} from '@/hooks/useTranslation';
 
 const sectionVariants: Variants = {
   offscreen: {
@@ -35,17 +35,7 @@ const childVariant: Variants = {
 };
 
 const About = () => {
-  const listTechnologies = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'Web3',
-    'React',
-    'NextJs',
-    'Node.js',
-    'Php-Laravel',
-    'Tailwind Css',
-    'Framer Motion',
-  ];
+  const {t} = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, {margin: '-100px 0px -100px 0px'});
 
@@ -61,28 +51,23 @@ const About = () => {
       //   whileInView='onscreen'
       //   viewport={{once: false, amount: 0.8}}
     >
-      <SectionTitle title='About Me' orderNumber="before:content-['01.']" />
+      <SectionTitle title={t.about.title} orderNumber="before:content-['01.']" />
       <motion.div className='md:flex gap-[30px] w-full items-start'>
         <motion.div className='text-slate flex-1 text-justify text-sm md:text-base'>
           <motion.p className='mb-[20px]' variants={childVariant}>
-            {`Hello there! My name is Vu Thanh Long and I enjoy build things and learn new stuffs. I studied in  HEDSPI -  Back Khoa University and hold a bachelor's degree in Computer Science from Murdic
-            University. I am a fast learner, enthusiastic, creative, and a team player. Currently residing in Ha Noi, Vietnam.`}
+            {t.about.paragraph1}
           </motion.p>
           <motion.p className='mb-[20px]' variants={childVariant}>
-            {`Outside of my
-            professional interests, I have a passion for e-sports, Chinese chess, reading books, and am a big fan of wuxia novels.`}
+            {t.about.paragraph2}
           </motion.p>
           <motion.p className='mb-[20px]' variants={childVariant}>
-            {`I believe
-            that my versatile interests, combined with my academic background and personal attributes, allow me to approach challenges with
-            a unique perspective and continually strive for excellence in everything I do.`}
+            {t.about.paragraph3}
           </motion.p>
-          <motion.p
-            variants={childVariant}
-            className='mb-[20px]'
-          >{`Here are a few technologies I’ve been working with recently:`}</motion.p>
+          <motion.p variants={childVariant} className='mb-[20px]'>
+            {t.about.technologiesTitle}
+          </motion.p>
           <motion.ul variants={sectionVariants} className='gap-2 grid-cols-2 grid md:grid-cols-3 text-xs md:text-sm mb-[40px] md:mb-0'>
-            {listTechnologies.map((tech: any, index: number) => {
+            {t.about.technologies.map((tech: string, index: number) => {
               return (
                 <motion.li
                   variants={childVariant}
@@ -98,7 +83,7 @@ const About = () => {
         <motion.div className='group relative w-fit mx-auto' variants={childVariant} transition={{duration: 1}}>
           <motion.div className='w-[256px] h-[384px] relative overflow-hidden rounded-lg mx-auto group-hover:-translate-y-[5px] duration-500 ease-in-out z-20'>
             <Image
-              src='/portrage.jpg'
+              src='/portrage.webp'
               alt='portrage'
               fill
               className='rounded-lg group-hover:scale-110 duration-500 ease-in-out grayscale group-hover:grayscale-0 shadow-lg'

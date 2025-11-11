@@ -6,6 +6,7 @@ interface ProjectCardProps {
   image: string;
   revert?: boolean;
   imageFit?: boolean;
+  direction: 'left' | 'right';
 }
 
 export type {ProjectCardProps};

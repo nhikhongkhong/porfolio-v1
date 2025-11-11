@@ -1,0 +1,225 @@
+{
+  "common": {
+    "resume": "Sơ yếu lý lịch",
+    "home": "Trang chủ"
+  },
+  "meta": {
+    "title": "Vũ Thành Long - Full Stack Developer",
+    "description": "Vũ Thành Long - Full Stack Developer - Có hơn 6 năm kinh nghiệm phát triển phần mềm với kiến thức sâu về framework web front-end hiện đại. Thành thạo React Js và TypeScript, Web3, Ether.js, Next Js, NodeJs, CSS/SCSS bao gồm Tailwind CSS, Bootstrap, Ant Design, Material UI. Có kinh nghiệm với ASP.NET, C#, MVC, SharePoint, SQL Server, MySQL, MongoDB.",
+    "ogDescription": "Full Stack Developer với hơn 6 năm kinh nghiệm phát triển web hiện đại",
+    "keywords": "Full Stack Developer, React, TypeScript, Next.js, Web3, Node.js, ASP.NET, C#, MVC, SharePoint, SQL Server, MySQL, MongoDB"
+  },
+  "navigation": {
+    "about": "Giới thiệu",
+    "experience": "Kinh nghiệm",
+    "work": "Dự án",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "greeting": "Xin chào, tên tôi là",
+    "name": "Vũ Thành Long.",
+    "title": "Tôi là một full-stack developer!",
+    "description": "Có hơn 6 năm kinh nghiệm phát triển phần mềm với kiến thức sâu về framework web front-end hiện đại. Thành thạo React Js và TypeScript, Web3, Ether.js, Next Js, NodeJs, CSS/SCSS bao gồm Tailwind CSS, Bootstrap, Ant Design, Material UI. Có kinh nghiệm với responsive layouts, cross-browser compatibility và thiết kế layout sử dụng Figma. Cũng có kinh nghiệm với ASP.NET, C#, MVC, SharePoint, SQL Server, MySQL, MongoDB. Quen thuộc với GIT, Bitbucket, JIRA. Sử dụng tiếng Anh và tiếng Trung như ngôn ngữ thứ hai.",
+    "cta": "Bạn muốn biết thêm về tôi?",
+    "button": "Bắt đầu khám phá"
+  },
+  "about": {
+    "title": "Về tôi",
+    "paragraph1": "Xin chào! Tên tôi là Vũ Thành Long và tôi thích xây dựng mọi thứ và học hỏi những điều mới. Tôi đã học tại HEDSPI - Đại học Bách Khoa và có bằng cử nhân Khoa học Máy tính từ Đại học Murdoch. Tôi là người học nhanh, nhiệt tình, sáng tạo và là người chơi theo đội. Hiện đang sinh sống tại Hà Nội, Việt Nam.",
+    "paragraph2": "Ngoài sở thích chuyên môn, tôi có niềm đam mê với e-sports, cờ tướng, đọc sách và là fan lớn của tiểu thuyết võ hiệp.",
+    "paragraph3": "Tôi tin rằng những sở thích đa dạng của tôi, kết hợp với nền tảng học vấn và phẩm chất cá nhân, cho phép tôi tiếp cận thử thách với một góc nhìn độc đáo và không ngừng phấn đấu cho sự xuất sắc trong mọi việc tôi làm.",
+    "technologiesTitle": "Đây là một số công nghệ tôi đã làm việc gần đây:",
+    "technologies": [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Web3",
+      "React",
+      "NextJs",
+      "Node.js",
+      "ASP.NET",
+      "C#",
+      "MVC",
+      "SharePoint",
+      "SQL Server",
+      "MySQL",
+      "MongoDB",
+      "Php-Laravel",
+      "Tailwind Css",
+      "Bootstrap",
+      "Ant Design",
+      "Material UI",
+      "Framer Motion",
+      "Figma",
+      "GIT",
+      "Bitbucket",
+      "JIRA"
+    ]
+  },
+  "experience": {
+    "title": "Kinh nghiệm làm việc",
+    "jobs": [
+      {
+        "company": "Vinox Co.,Ltd",
+        "position": "Full-Stack Developer",
+        "period": "Tháng 4/2021 – Hiện tại",
+        "responsibilities": [
+          "Phối hợp với các nhóm khác (BA, Devops, nhóm phát triển) để cải thiện chất lượng sản phẩm.",
+          "Thiết kế code base mới để giảm chi phí và tăng tính linh hoạt cho việc thích ứng dựa trên express, nextjs, tailwind, graphql.",
+          "Lập trình, sửa lỗi và review code...",
+          "Hỗ trợ các thành viên trong nhóm."
+        ]
+      },
+      {
+        "company": "Tập đoàn Viettel",
+        "position": "Back-End Developer & Software Developer",
+        "period": "Tháng 3/2020 – Tháng 4/2021",
+        "responsibilities": [
+          "Tái cấu trúc kiến trúc phần mềm.",
+          "Lập lịch dự án.",
+          "Thiết kế hệ thống.",
+          "Phối hợp với các nhóm khác để cải thiện chất lượng sản phẩm.",
+          "Lập trình, sửa lỗi và review code..."
+        ]
+      },
+      {
+        "company": "Đại học Murdoch",
+        "position": "Sinh viên chuyên ngành Khoa học Máy tính - BIS",
+        "period": "Tháng 9/2018 - Tháng 3/2020",
+        "responsibilities": [
+          "Cử nhân Hệ thống Thông tin Kinh doanh (BIS) và Khoa học Máy tính (Chứng chỉ học thuật)"
+        ]
+      },
+      {
+        "company": "Đại học Bách Khoa",
+        "position": "Sinh viên chuyên ngành Khoa học Máy tính",
+        "period": "Tháng 9/2011 - Tháng 9/2016",
+        "responsibilities": [
+          "Chuyên ngành Hệ thống Thông tin - Chương trình HEDSPI"
+        ]
+      }
+    ]
+  },
+  "work": {
+    "title": "Một số dự án tôi đã xây dựng",
+    "projects": [
+      {
+        "title": "MangaM",
+        "subtitle": "Vinox Co.,Ltd - Full-stack Developer",
+        "descriptions": [
+          "Hệ thống dựa trên web cho phép các nghệ sĩ có thể xuất bản tác phẩm của họ một cách nhanh chóng, dễ dàng và miễn phí.",
+          "Mục tiêu của dự án này được tạo ra chỉ để làm cho manga có ý nghĩa và giải trí có sẵn cho mọi người bất kể tình huống và vị trí của họ."
+        ],
+        "technologies": ["Next JS", "Tailwind Css", "Redux", "Adonis", "Mysql Redis"]
+      },
+      {
+        "title": "Soup Finance",
+        "subtitle": "Vinox Co.,Ltd - FE Web3 Developer",
+        "descriptions": [
+          "Soup Finance là thị trường tiền tệ chuỗi chéo phi tập trung cho nền kinh tế metaverse. Cung cấp tài sản crypto để kiếm lãi và vay tài sản với các khoản vay được trợ cấp lãi suất thấp với phần thưởng $SOUP."
+        ],
+        "technologies": ["NextJs", "Tailwind Css", "Web3", "Framer Motion"]
+      },
+      {
+        "title": "NFT Market",
+        "subtitle": "Vinox Co.,Ltd - FE Web3 Developer",
+        "descriptions": [
+          "Thị trường NFT để giao dịch các vật phẩm từ MetaSea - The Amazing Adventure là một trò chơi xây dựng nhiều người chơi nơi bất kỳ ai cũng có thể mua và sở hữu các vật phẩm hiếm, thu thập quái vật biển cổ đại và gặp gỡ bạn bè mới."
+        ],
+        "technologies": ["Web3 ", "NextJs", "Tailwind Css", "Telegraf", "MongoDb"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Tiếp theo",
+    "description": "Tôi thực sự đánh giá cao thời gian của bạn để đi xa đến đây. Mặc dù tôi hiện không tìm kiếm cơ hội mới, nhưng hộp thư của tôi luôn mở. Cho dù bạn có câu hỏi hay chỉ muốn chào hỏi, tôi sẽ cố gắng hết sức để trả lời bạn!",
+    "dropMessage": "Gửi tin nhắn",
+    "giveCall": "Gọi cho tôi",
+    "thankYou": "Cảm ơn bạn và chúc bạn có một ngày vui vẻ."
+  },
+  "footer": {
+    "copyright": "Sản phẩm của Long Wu",
+    "inspiration": "Cảm ơn Brittany Chiang vì nguồn cảm hứng"
+  },
+  "streamer": {
+    "live": "TRỰC TIẾP",
+    "reviewingPortfolio": "Đang xem Portfolio",
+    "portfolioReviewer": "@NgườiXemPortfolio",
+    "watching": "đang xem",
+    "liveChat": "Chat trực tiếp",
+    "viewers": "người xem",
+    "muteAudio": "Tắt tiếng",
+    "enableAudio": "Bật tiếng",
+    "muteStreamingAudio": "Tắt tiếng phát trực tiếp",
+    "enableStreamingAudio": "Bật tiếng phát trực tiếp",
+    "welcomeMessages": [
+      "Vừa tham gia! Portfolio này trông tuyệt vời! 🔥",
+      "Đến đây để xem review portfolio! 👀",
+      "Wow, thật chuyên nghiệp! 👏"
+    ],
+    "sectionMessages": {
+      "hero": [
+        "Wow, portfolio này trông tuyệt vời! 🔥",
+        "Yêu thiết kế này! Sạch sẽ và hiện đại! ✨",
+        "Thật chuyên nghiệp! 👏",
+        "Ấn tượng đầu tiên tuyệt vời! 💪",
+        "Animation mượt mà! 🎬",
+        "Bảng màu đẹp! 🎨"
+      ],
+      "about": [
+        "6+ năm kinh nghiệm, ấn tượng! 🚀",
+        "Tech stack tuyệt vời! React + TypeScript = ❤️",
+        "Yêu danh sách kỹ năng! 💻",
+        "Có kinh nghiệm Web3? Tuyệt vời! 🌐",
+        "Developer đa ngôn ngữ, rất cool! 🌍",
+        "Phần kinh nghiệm chi tiết! 📝"
+      ],
+      "experience": [
+        "Lịch sử làm việc tốt! 💼",
+        "Timeline ấn tượng! 📅",
+        "Các công ty tuyệt vời! 🏢",
+        "Trách nhiệm được mô tả rõ ràng! ✍️",
+        "Kinh nghiệm chuyên nghiệp! 👔",
+        "Thích thấy sự phát triển sự nghiệp! 📈"
+      ],
+      "work": [
+        "Những dự án này tuyệt vời! 🎯",
+        "Dự án portfolio tuyệt vời! 💼",
+        "Yêu các project cards! 🎴",
+        "Thiết kế đẹp! 🎨",
+        "Công việc ấn tượng! 👏",
+        "Đây là các dự án thật? Wow! 😲",
+        "Tech stack cho mỗi dự án rất vững! 💪"
+      ],
+      "contact": [
+        "Dễ liên hệ! 👍",
+        "Call to action hay! 📞",
+        "Phần liên hệ chuyên nghiệp! 📧",
+        "Yêu hiệu ứng typing animation! ⌨️",
+        "Cách kết thúc portfolio hay! 🎉"
+      ]
+    },
+    "genericMessages": [
+      "Portfolio này tuyệt vời! 🔥",
+      "Công việc tuyệt vời! Tiếp tục phát huy! 💪",
+      "Thật chuyên nghiệp! 👏",
+      "Yêu thiết kế này! ✨",
+      "Điều này ấn tượng! 😍",
+      "Portfolio tuyệt vời! 🎯",
+      "Làm tốt lắm! 👌",
+      "Website đẹp! 🌟",
+      "Animation mượt mà! 🎬",
+      "Đây là cấp độ hàng đầu! 🏆",
+      "Kỹ năng đáng kinh ngạc! 🚀",
+      "Đây là cấp độ tiếp theo! 💯",
+      "Sạch sẽ và hiện đại! 🎨",
+      "Thực hiện hoàn hảo! ⚡",
+      "Yêu sự chú ý đến chi tiết! 🔍",
+      "Điều này truyền cảm hứng! 💡",
+      "Làm tốt lắm! 🎉",
+      "UX tuyệt vời! 👌",
+      "Điều này nổi bật! 🌟",
+      "Chất lượng chuyên nghiệp! 🏅"
+    ]
+  }
+}
+

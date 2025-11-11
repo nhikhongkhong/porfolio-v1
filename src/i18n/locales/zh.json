@@ -1,0 +1,225 @@
+{
+  "common": {
+    "resume": "简历",
+    "home": "首页"
+  },
+  "meta": {
+    "title": "武成龙 - 全栈开发工程师",
+    "description": "武成龙 - 全栈开发工程师 - 拥有6年以上软件开发经验，深入了解现代前端Web框架。精通React Js和TypeScript、Web3、Ether.js、Next Js、NodeJs、CSS/SCSS，包括Tailwind CSS、Bootstrap、Ant Design、Material UI。具有ASP.NET、C#、MVC、SharePoint、SQL Server、MySQL、MongoDB经验。",
+    "ogDescription": "拥有6年以上现代Web开发经验的全栈开发工程师",
+    "keywords": "全栈开发工程师, React, TypeScript, Next.js, Web3, Node.js, ASP.NET, C#, MVC, SharePoint, SQL Server, MySQL, MongoDB"
+  },
+  "navigation": {
+    "about": "关于",
+    "experience": "经历",
+    "work": "作品",
+    "contact": "联系"
+  },
+  "hero": {
+    "greeting": "你好，我的名字是",
+    "name": "武成龙。",
+    "title": "我是一名全栈开发工程师！",
+    "description": "拥有6年以上软件开发经验，深入了解现代前端Web框架。精通React Js和TypeScript、Web3、Ether.js、Next Js、NodeJs、CSS/SCSS，包括Tailwind CSS、Bootstrap、Ant Design、Material UI。具有响应式布局、跨浏览器兼容性和使用Figma进行设计布局的经验。还熟悉ASP.NET、C#、MVC、SharePoint、SQL Server、MySQL、MongoDB。熟悉GIT、Bitbucket、JIRA。使用英语和中文作为第二语言。",
+    "cta": "想了解更多关于我的信息吗？",
+    "button": "开始浏览"
+  },
+  "about": {
+    "title": "关于我",
+    "paragraph1": "你好！我的名字是武成龙，我喜欢构建东西和学习新事物。我在HEDSPI - 河内科技大学学习，并拥有默多克大学计算机科学学士学位。我是一个快速学习者，热情、有创造力，并且是一个团队合作者。目前居住在越南河内。",
+    "paragraph2": "除了我的专业兴趣外，我对电子竞技、中国象棋、阅读书籍充满热情，并且是武侠小说的忠实粉丝。",
+    "paragraph3": "我相信，我多样化的兴趣，结合我的学术背景和个人特质，使我能够以独特的视角应对挑战，并在我所做的一切中不断追求卓越。",
+    "technologiesTitle": "以下是我最近使用的一些技术：",
+    "technologies": [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Web3",
+      "React",
+      "NextJs",
+      "Node.js",
+      "ASP.NET",
+      "C#",
+      "MVC",
+      "SharePoint",
+      "SQL Server",
+      "MySQL",
+      "MongoDB",
+      "Php-Laravel",
+      "Tailwind Css",
+      "Bootstrap",
+      "Ant Design",
+      "Material UI",
+      "Framer Motion",
+      "Figma",
+      "GIT",
+      "Bitbucket",
+      "JIRA"
+    ]
+  },
+  "experience": {
+    "title": "我的工作经历",
+    "jobs": [
+      {
+        "company": "Vinox Co.,Ltd",
+        "position": "全栈开发工程师",
+        "period": "2021年4月 – 至今",
+        "responsibilities": [
+          "与其他团队（业务分析师、DevOps、开发团队）协调，提高产品质量。",
+          "设计新的代码库，基于express、nextjs、tailwind、graphql降低成本并增强适应性灵活性。",
+          "编码、修复错误和代码审查...",
+          "支持团队成员。"
+        ]
+      },
+      {
+        "company": "Viettel集团",
+        "position": "后端开发工程师和软件开发工程师",
+        "period": "2020年3月 – 2021年4月",
+        "responsibilities": [
+          "重构软件架构。",
+          "项目调度。",
+          "系统设计。",
+          "与其他团队协调，提高产品质量。",
+          "编码、修复错误和代码审查..."
+        ]
+      },
+      {
+        "company": "默多克大学",
+        "position": "计算机科学专业学生 - BIS",
+        "period": "2018年9月 - 2020年3月",
+        "responsibilities": [
+          "商业信息系统（BIS）和计算机科学学士学位（学术认证）"
+        ]
+      },
+      {
+        "company": "河内科技大学",
+        "position": "计算机科学专业学生",
+        "period": "2011年9月 - 2016年9月",
+        "responsibilities": [
+          "信息系统专业 - HEDSPI项目"
+        ]
+      }
+    ]
+  },
+  "work": {
+    "title": "我构建的一些项目",
+    "projects": [
+      {
+        "title": "MangaM",
+        "subtitle": "Vinox Co.,Ltd - 全栈开发工程师",
+        "descriptions": [
+          "一个基于Web的系统，允许艺术家快速、轻松且免费地发布他们的作品。",
+          "这个项目的目的是为了让每个人都能获得有意义和有趣的漫画，无论他们的情况和位置如何。"
+        ],
+        "technologies": ["Next JS", "Tailwind Css", "Redux", "Adonis", "Mysql Redis"]
+      },
+      {
+        "title": "Soup Finance",
+        "subtitle": "Vinox Co.,Ltd - 前端Web3开发工程师",
+        "descriptions": [
+          "Soup Finance是元宇宙经济的去中心化跨链货币市场。提供加密资产以赚取利息，并以低息补贴贷款借入资产，获得$SOUP奖励。"
+        ],
+        "technologies": ["NextJs", "Tailwind Css", "Web3", "Framer Motion"]
+      },
+      {
+        "title": "NFT市场",
+        "subtitle": "Vinox Co.,Ltd - 前端Web3开发工程师",
+        "descriptions": [
+          "MetaSea的交易物品NFT市场 - The Amazing Adventure是一款多人建造游戏，任何人都可以购买和拥有稀有物品，收集古代海怪并结识新朋友。"
+        ],
+        "technologies": ["Web3 ", "NextJs", "Tailwind Css", "Telegraf", "MongoDb"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "接下来",
+    "description": "非常感谢您花时间看到这里。虽然我目前不在寻找新的机会，但我的收件箱始终开放。无论您有问题还是只想打个招呼，我都会尽力回复您！",
+    "dropMessage": "发送消息",
+    "giveCall": "给我打电话",
+    "thankYou": "谢谢您，祝您有愉快的一天。"
+  },
+  "footer": {
+    "copyright": "Long Wu 制作",
+    "inspiration": "感谢Brittany Chiang的灵感"
+  },
+  "streamer": {
+    "live": "直播",
+    "reviewingPortfolio": "正在审查作品集",
+    "portfolioReviewer": "@作品集审查员",
+    "watching": "观看",
+    "liveChat": "直播聊天",
+    "viewers": "观众",
+    "muteAudio": "静音",
+    "enableAudio": "启用音频",
+    "muteStreamingAudio": "静音直播音频",
+    "enableStreamingAudio": "启用直播音频",
+    "welcomeMessages": [
+      "刚加入！这个作品集看起来太棒了！🔥",
+      "来这里看作品集审查！👀",
+      "哇，太专业了！👏"
+    ],
+    "sectionMessages": {
+      "hero": [
+        "哇，这个作品集看起来太棒了！🔥",
+        "喜欢这个设计！如此干净现代！✨",
+        "太专业了！👏",
+        "第一印象很棒！💪",
+        "动画很流畅！🎬",
+        "漂亮的配色方案！🎨"
+      ],
+      "about": [
+        "6年以上经验，令人印象深刻！🚀",
+        "很棒的技术栈！React + TypeScript = ❤️",
+        "喜欢技能列表！💻",
+        "Web3经验？太棒了！🌐",
+        "多语言开发者，很酷！🌍",
+        "经验部分很详细！📝"
+      ],
+      "experience": [
+        "不错的工作经历！💼",
+        "令人印象深刻的时间线！📅",
+        "很棒的公司！🏢",
+        "职责描述得很好！✍️",
+        "专业经验！👔",
+        "喜欢看到职业发展！📈"
+      ],
+      "work": [
+        "这些项目太棒了！🎯",
+        "很棒的作品集项目！💼",
+        "喜欢项目卡片！🎴",
+        "设计很漂亮！🎨",
+        "令人印象深刻的作品！👏",
+        "这些是真实项目？哇！😲",
+        "每个项目的技术栈都很扎实！💪"
+      ],
+      "contact": [
+        "很容易联系！👍",
+        "很好的行动号召！📞",
+        "专业的联系部分！📧",
+        "喜欢动画打字效果！⌨️",
+        "很好的作品集结尾！🎉"
+      ]
+    },
+    "genericMessages": [
+      "这个作品集太棒了！🔥",
+      "惊人的作品！继续努力！💪",
+      "太专业了！👏",
+      "喜欢这个设计！✨",
+      "这令人印象深刻！😍",
+      "很棒的作品集！🎯",
+      "做得好！👌",
+      "漂亮的网站！🌟",
+      "动画很流畅！🎬",
+      "这是顶级水平！🏆",
+      "不可思议的技能！🚀",
+      "这是下一个级别！💯",
+      "如此干净现代！🎨",
+      "完美执行！⚡",
+      "喜欢对细节的关注！🔍",
+      "这很鼓舞人心！💡",
+      "做得很好！🎉",
+      "用户体验太棒了！👌",
+      "这很突出！🌟",
+      "专业品质！🏅"
+    ]
+  }
+}
+

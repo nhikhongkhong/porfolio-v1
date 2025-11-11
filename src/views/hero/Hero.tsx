@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import {motion, Variants, useInView} from 'framer-motion';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import Contact from '../contact';
+import {useTranslation} from '@/hooks/useTranslation';
 
 const sectionVariants: Variants = {
   offscreen: {
@@ -36,6 +37,8 @@ const childVariant: Variants = {
 const Hero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {margin: '-100px'});
+  const {t} = useTranslation();
+
   return (
     <motion.section id='hero' className='h-screen flex flex-col justify-center'>
       <motion.div
@@ -49,20 +52,22 @@ const Hero = () => {
         className='space-y-[20px]'
       >
         <motion.p variants={childVariant} className='text-sm md:text-base text-primary'>
-          Hi, my name is
+          {t.hero.greeting}
         </motion.p>
         <motion.h1 variants={childVariant} className='text-white text-3xl md:text-5xl'>
-          Vu Thanh Long.
+          {t.hero.name}
         </motion.h1>
-        <motion.h2 variants={childVariant} className='text-slate text-3xl md:text-5xl'>{`I'm a full-stack developer!`}</motion.h2>
+        <motion.h2 variants={childVariant} className='text-slate text-3xl md:text-5xl'>
+          {t.hero.title}
+        </motion.h2>
         <motion.p variants={childVariant} className='text-slate text-sm md:text-base'>
-          {`About 5+ years of experience in software development with in-depth knowledge of modern front-end web framework. Skilled in React Js and Typescript, Web3, Ether.js, Next Js, NodeJs, CSS/SCSS including Tailwind CSS, Bootstrap, Ant Design, ...`}
+          {t.hero.description}
         </motion.p>
         <motion.p variants={childVariant} className='text-slate'>
-          Want to know more about me ?
+          {t.hero.cta}
         </motion.p>
         <motion.div variants={childVariant}>
-          <PrimaryButton href='#about' title='Take a tour' textClassName='w-[200px]' />
+          <PrimaryButton href='#about' title={t.hero.button} textClassName='w-[200px]' />
         </motion.div>
       </motion.div>
     </motion.section>

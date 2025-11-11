@@ -2,11 +2,7 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import Link from 'next/link';
 import clsx from 'clsx';
-
-import {FaFacebook} from 'react-icons/fa';
-import {TfiLinkedin} from 'react-icons/tfi';
-import {MdOutlineSendToMobile} from 'react-icons/md';
-import {BsTelegram, BsGithub} from 'react-icons/bs';
+import {contactEmail} from '@/utils/socialInfo';
 
 const RightSideBar = () => {
   return (
@@ -50,8 +46,8 @@ const RightSideBar = () => {
           }}
           whileHover={{transform: 'translateY(-5px)'}}
         >
-          <Link href='mailto:wutianron@gmail.com' target='_blank' rel='noopener noreferrer'>
-            wutianron@gmail.com
+          <Link href={`mailto:${contactEmail}`} target='_blank' rel='noopener noreferrer'>
+            {contactEmail}
           </Link>
         </motion.p>
       </motion.ul>
